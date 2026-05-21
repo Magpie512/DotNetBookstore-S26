@@ -9,6 +9,9 @@ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
+This Software is provided free of charge for educational and learning purposes
+only. Production use of this Software is not permitted.
+
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
 
