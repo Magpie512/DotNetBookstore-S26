@@ -1,5 +1,8 @@
 ﻿// This code defines a simple Category class with two properties: CategoryId and Name.  while the Name is a string that holds the name of the category. This class is part of the DotNetBookstore.Models namespace, which suggests it is used in a bookstore application to represent different categories of books.
 
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+
 namespace DotNetBookstore.Models
 {
     public class Category
@@ -12,6 +15,8 @@ namespace DotNetBookstore.Models
             get; set;
         }
         // The Name property is a string that holds the name of the category. It has both a getter and a setter, allowing you to read and modify its value. It is initialized to an empty string to ensure it has a default value.
+        [Required(ErrorMessage = "The category name is required.")]
+        [DisplayName("Category Name")]
         public string Name { get; set; } = string.Empty;
     }
 }

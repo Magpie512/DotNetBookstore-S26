@@ -12,7 +12,7 @@ namespace DotNetBookstore.Controllers
             // This could include things like retrieving data from a database, performing calculations, or any other operations that are necessary for the page to function properly.
 
             // For demonstration purposes, we'll just create a list of categories in memory and pass it to the view.         
-            //var categories = new List<Models.Category>
+            //var categories = new List<Category>
             // {
             //     new Models.Category { CategoryId = 1, Name = "Novels" },
             //     new Models.Category { CategoryId = 2, Name = "History" },
@@ -32,7 +32,7 @@ namespace DotNetBookstore.Controllers
         }
 
         // This action method will be called when the user clicks on a category link. It will receive the category name as a parameter and can use it to retrieve the relevant books from the database or perform any other necessary operations.
-        public IActionResult Browse(string category) 
+        public IActionResult Browse(string category)
         {
             // A simple error handling: if the category parameter is null or empty, we can return a BadRequest result or redirect to an error page.
             if (string.IsNullOrEmpty(category))
@@ -52,5 +52,24 @@ namespace DotNetBookstore.Controllers
             // In a real application, you would typically retrieve the books for the specified category from a database and pass them to the view. For demonstration purposes, we'll just pass the category name to the view using ViewBag.
             return View();
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Category category)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(category);
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+
     }
+
 }
